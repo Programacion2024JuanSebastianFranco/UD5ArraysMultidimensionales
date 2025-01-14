@@ -89,6 +89,7 @@ public class VentasSemanales {
             salida.append(String.format("%-11s", seguimiento[numSemanas][suma]));
         }
         return salida.toString();
+
     }
 
 }
