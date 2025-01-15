@@ -26,7 +26,7 @@ public class Principal3 {
                     if (ventas == null) {
                         System.out.println("Primero debes crear una instancia");
                     }
-                    System.out.println("Introduce la semana"):");
+                    System.out.println("Introduce la semana");
                     int semana = scanner.nextInt();
                     System.out.println("Introduce el dia (0 = LUNES ... 6 = DOMINGO):");
                     int dia = scanner.nextInt();
