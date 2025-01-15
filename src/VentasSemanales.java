@@ -29,14 +29,16 @@ public class VentasSemanales {
     @Override
     public String toString() {
 
-        String salida= String.format("%-11s", "Semana" + "Lunes" + "Martes" + "Miercoles" + "Jueves" + "Viernes");
+        String salida= String.format("%-11s", "Semana" + "Lunes" + "Martes" + "Miercoles" + "Jueves" + "Viernes" +"\n");
 
         for(int i = 0; i < numSemanas; i++){
             salida += String.format("%-11s", "S" + (i+1));
             for (int j = 0; j < 7; j++){
                 salida += String.format("%-11s", seguimiento[i][j]);
             }
+            salida += String.format("\n");
         }
+
 
         return salida;
     }
