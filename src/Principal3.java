@@ -15,7 +15,7 @@ public class Principal3 {
             switch (opc) {
                 case 1 -> {
                     // Crear instancia de VentasSemanales
-                    System.out.println("Introduce el número de semanas:");
+                    System.out.println("Introduce el numero de semanas:");
                     int numSemanas = scanner.nextInt();
                     ventas = new VentasSemanales(numSemanas);
                     System.out.println("Instancia creada con " + numSemanas + " semanas.");
