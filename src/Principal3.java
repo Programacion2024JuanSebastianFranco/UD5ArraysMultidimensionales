@@ -33,7 +33,7 @@ public class Principal3 {
                     System.out.println("Introduce el valor de la venta:");
                     int valor = scanner.nextInt();
 
-                    ventas.guardarVenta(semana, VentasSemanales.diaSemana.values()[dia], valor);
+                    ventas.guardarVenta(semana, dia, valor);
                     System.out.println("Venta registrada");
                 }
 
@@ -56,7 +56,7 @@ public class Principal3 {
                     System.out.println("Introduce el día (0 = LUNES ... 6 = DOMINGO):");
                     int dia = scanner.nextInt();
 
-                    int totalDia = ventas.totalDiaSemana(VentasSemanales.diaSemana.values()[dia].ordinal());
+                    int totalDia = ventas.totalDiaSemana(dia);
                     System.out.println("Total ventas del día: " + totalDia);
                 }
 
@@ -68,7 +68,7 @@ public class Principal3 {
                     System.out.println("Introduce el día (0 = LUNES ... 6 = DOMINGO):");
                     int dia = scanner.nextInt();
 
-                    int mediaDia = ventas.mediaDiaSemana(VentasSemanales.diaSemana.values()[dia].ordinal());
+                    int mediaDia = ventas.mediaDiaSemana(dia);
                     System.out.println("Media de ventas del dia: " + mediaDia);
                 }
 

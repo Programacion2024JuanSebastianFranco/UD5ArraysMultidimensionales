@@ -12,13 +12,12 @@ public class VentasSemanales {
         this.seguimiento = new int[numSemanas][7];
     }
 
-    public void guardarVenta(int semana, diaSemana dia, int valor) {
+    public void guardarVenta(int semana, int dia, int valor) {
 
         if (semana < 0 || semana >= numSemanas) {
             System.out.println("Semana fuera de rango.");
         } else {
-            int indiceDia = dia.ordinal();
-            seguimiento[semana][indiceDia] = valor;
+            seguimiento[semana][dia] = valor;
         }
     }
 
