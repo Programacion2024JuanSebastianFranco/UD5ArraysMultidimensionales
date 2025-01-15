@@ -1,6 +1,4 @@
-public class Principal {
-
-    int[][] int2d = new int[5][10];
+public class MatrizPunto4 {int[][] int2d = new int[5][10];
 
 
     public int[][] multi(int[][] bid) {
@@ -31,6 +29,5 @@ public class Principal {
 
         return imprimir.toString();
     }
-
 
 }

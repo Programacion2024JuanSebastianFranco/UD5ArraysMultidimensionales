@@ -1,5 +1,3 @@
-import java.io.DataInput;
-
 public class VentasSemanales {
     public enum diaSemana {
         LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
@@ -11,7 +9,7 @@ public class VentasSemanales {
 
     public VentasSemanales(int numSemanas) {
         this.numSemanas = numSemanas;
-        this.seguimiento = new int[0][7];
+        this.seguimiento = new int[numSemanas][7];
     }
 
     public void guardarVenta(int semana, diaSemana dia, int valor) {
@@ -53,25 +51,23 @@ public class VentasSemanales {
         return salida.toString();
     }
 
-    public int totalDiaSemana(diaSemana dia){
+    public int totalDiaSemana(int dia){
 
         int suma = 0;
 
         for (int i = 0; i < numSemanas; i++){
-            int indiceDia = dia.ordinal();
-            suma += seguimiento[i][indiceDia];
+            suma += seguimiento[i][dia];
         }
         return suma;
     }
 
-    public int mediaDiaSemana(diaSemana dia){
+    public int mediaDiaSemana(int dia){
 
         int suma = 0;
         int media;
 
         for(int i = 0; i < numSemanas; i++){
-            int indiceDia = dia.ordinal();
-            suma += seguimiento[i][indiceDia];
+            suma += seguimiento[i][dia];
         }
 
         media = suma / numSemanas;
@@ -82,15 +78,24 @@ public class VentasSemanales {
     public String totalSemana(){
         StringBuilder salida= new StringBuilder();
 
-        int suma = 0;
-
         for (int i = 0; i < numSemanas; i++){
-            suma += seguimiento[i][i];
-            salida.append(String.format("%-11s", seguimiento[numSemanas][suma]));
+            salida.append(String.format("%-11s", totalDiaSemana(i)));
         }
 
         return salida.toString();
 
     }
+
+    public String mediaSemana(){
+        StringBuilder salida= new StringBuilder();
+
+        for (int i = 0; i < numSemanas; i++){
+            salida.append(String.format("%-11s", mediaDiaSemana(i)));
+        }
+
+        return salida.toString();
+
+    }
+
 
 }
