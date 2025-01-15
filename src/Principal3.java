@@ -56,7 +56,7 @@ public class Principal3 {
                     System.out.println("Introduce el día (0 = LUNES ... 6 = DOMINGO):");
                     int dia = scanner.nextInt();
 
-                    int totalDia = ventas.totalDiaSemana(VentasSemanales.diaSemana.values()[dia]);
+                    int totalDia = ventas.totalDiaSemana(VentasSemanales.diaSemana.values()[dia].ordinal());
                     System.out.println("Total ventas del día: " + totalDia);
                 }
 
@@ -68,7 +68,7 @@ public class Principal3 {
                     System.out.println("Introduce el día (0 = LUNES ... 6 = DOMINGO):");
                     int dia = scanner.nextInt();
 
-                    int mediaDia = ventas.mediaDiaSemana(VentasSemanales.diaSemana.values()[dia]);
+                    int mediaDia = ventas.mediaDiaSemana(VentasSemanales.diaSemana.values()[dia].ordinal());
                     System.out.println("Media de ventas del dia: " + mediaDia);
                 }
 
@@ -107,7 +107,7 @@ public class Principal3 {
                     MENU
                     1. Crear instancia de VentasSemanales
                     2. Guardar venta
-                    3. Mostrar ventas totales por semana
+                    3. Mostrar ventas de la semana
                     4. Mostrar total de ventas por dia de la semana
                     5. Mostrar media de ventas por dia de la semana
                     6. Mostrar tabla completa de ventas
