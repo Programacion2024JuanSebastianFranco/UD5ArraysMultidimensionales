@@ -91,13 +91,33 @@ public class Principal3 {
                 }
 
                 case 8 -> {
+                    // Suma total
+                    if (ventas == null) {
+                        System.out.println("Primero debes crear una instancia");
+                    }
+
+                    String totalSemana = ventas.totalSemana();
+                    System.out.println("Suma de ventas total de las semanas: " + "\n" + totalSemana);
+                }
+
+                case 9 -> {
+                    // Media total
+                    if (ventas == null) {
+                        System.out.println("Primero debes crear una instancia");
+                    }
+
+                    String mediaDia = ventas.mediaSemana();
+                    System.out.println("Media de ventas de las semanas: " + "\n" + mediaDia);
+                }
+
+                case 10 -> {
                     // Salir
                     System.out.println("Adios");
                 }
 
                 default -> System.out.println("Opcion no valida");
             }
-        } while (opc != 8);
+        } while (opc != 10);
     }
 
     public static int menu() {
@@ -112,10 +132,12 @@ public class Principal3 {
                     5. Mostrar media de ventas por dia de la semana
                     6. Mostrar tabla completa de ventas
                     7. Inicializar ventas
-                    8. Salir
+                    8. Suma total de todas las ventas
+                    9. Media total de todas las ventas
+                    10. Salir
                     """);
             opc = scan.nextInt();
-        } while (opc < 1 || opc > 8);
+        } while (opc < 1 || opc > 10);
 
         return opc;
     }

@@ -1,7 +1,4 @@
 public class VentasSemanales {
-    public enum diaSemana {
-        LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
-    }
 
     private int numSemanas;
     private int[][] seguimiento;
@@ -13,9 +10,10 @@ public class VentasSemanales {
     }
 
     public void guardarVenta(int semana, int dia, int valor) {
-
-        if (semana < 0 || semana >= numSemanas) {
-            System.out.println("Semana fuera de rango.");
+        if (semana >= 6) {
+            System.out.println("Fuera de rango");
+        } else if (dia >= 6) {
+            System.out.println("Fuera de rango");
         } else {
             seguimiento[semana][dia] = valor;
         }
@@ -23,20 +21,25 @@ public class VentasSemanales {
 
 
     public void inicializarVentas(){
-        this.seguimiento = new int[0][7];
+        for (int[] semana : seguimiento) {
+            for (int dia : semana) {
+                semana[dia] = 0;
+            }
+        }
     }
 
     @Override
     public String toString() {
 
-        String salida= String.format("%-11s", "Semana" + "Lunes" + "Martes" + "Miercoles" + "Jueves" + "Viernes" +"\n");
+        String salida= String.format("%-11s%-11s%-11s%-11s%-11s%-11s%-11s%-11s", "Semana","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo");
 
         for(int i = 0; i < numSemanas; i++){
+            salida += String.format("\n");
             salida += String.format("%-11s", "S" + (i+1));
             for (int j = 0; j < 7; j++){
                 salida += String.format("%-11s", seguimiento[i][j]);
             }
-            salida += String.format("\n");
+
         }
 
 
@@ -45,7 +48,6 @@ public class VentasSemanales {
 
     public String totalSemana(int semana){
         StringBuilder salida= new StringBuilder();
-
         for (int i = 0; i < 7; i++){
             salida.append(String.format("%-11s", seguimiento[semana][i]));
         }
@@ -53,11 +55,13 @@ public class VentasSemanales {
     }
 
     public int totalDiaSemana(int dia){
-
         int suma = 0;
-
-        for (int i = 0; i < numSemanas; i++){
-            suma += seguimiento[i][dia];
+        if (dia < 0 || dia >= 7) {
+            suma = -1;
+        } else {
+            for (int i = 0; i < numSemanas; i++) {
+                suma += seguimiento[i][dia];
+            }
         }
         return suma;
     }
@@ -77,9 +81,10 @@ public class VentasSemanales {
     }
 
     public String totalSemana(){
-        StringBuilder salida= new StringBuilder();
+        StringBuilder salida= new StringBuilder(String.format("%-11s%-11s%-11s%-11s%-11s%-11s%-11s","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"));
 
-        for (int i = 0; i < numSemanas; i++){
+        salida.append("\n");
+        for (int i = 0; i < 7; i++){
             salida.append(String.format("%-11s", totalDiaSemana(i)));
         }
 
@@ -88,9 +93,10 @@ public class VentasSemanales {
     }
 
     public String mediaSemana(){
-        StringBuilder salida= new StringBuilder();
+        StringBuilder salida= new StringBuilder(String.format("%-11s%-11s%-11s%-11s%-11s%-11s%-11s","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"));
 
-        for (int i = 0; i < numSemanas; i++){
+        salida.append("\n");
+        for (int i = 0; i < 7; i++){
             salida.append(String.format("%-11s", mediaDiaSemana(i)));
         }
 
